@@ -6,7 +6,14 @@ export default function Item({ item, onDeleteItem, onToggleItem }) {
         checked={item.checked}
         onChange={() => onToggleItem(item.id)}
       />
-      <span style={item.checked ? { textDecoration: "line-through" } : {}}>
+      <span
+        style={
+          item.checked
+            ? { textDecoration: "line-through", cursor: "pointer" }
+            : { cursor: "pointer" }
+        }
+        onClick={() => onToggleItem(item.id)}
+      >
         {item.quantity} {item.name}
       </span>
       <button onClick={() => onDeleteItem(item.id)}>&times;</button>
